@@ -1,0 +1,68 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+  }
+  .main-heading{
+    text-align: center;
+    padding: 20px;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
+  }
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%; 
+   padding:35px 65px 50px 65px;
+  }
+  
+  .line {
+    width: 100%;
+    background-color: gray;
+    height: 5px;
+    
+  }
+  .numbers {
+    padding: 3px;
+    background-color: gray;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    text-align: center;
+    border: 2px solid black;
+    font-size:smaller;
+  }
+  .ele-container {
+    display: flex;
+    position: relative;
+  }
+  .content {
+    position: absolute;
+    bottom: -30px;
+    text-wrap: nowrap;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .button-container {
+    text-align: center;
+  }
+  #twobuttons {
+    margin-top: 20px;
+  }
+  
+  #twobuttons button {
+    padding: 10px;
+  }
+  
+  .numberBg{
+    background-color: limegreen;
+    color: white;
+  }
+  .linesBg{
+    background-color: limegreen;
+  }
+  .nextNumberBg{
+    background-color: blue;
+  }
+  
