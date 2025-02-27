@@ -31,12 +31,14 @@ function allLeft(){
      singleElement.forEach((ele)=>{
         leftContainer.append(ele)
      })
+     updateBtn()
 }
 
 function allRight(){
     singleElement.forEach((ele)=>{
         rightContainer.append(ele)
      })
+     updateBtn()
 }
 
 function left(){
@@ -46,6 +48,7 @@ function left(){
              inp.checked = false
         }
     })
+    updateBtn()
 }
 
 function right(){
@@ -55,6 +58,7 @@ function right(){
              inp.checked = false
         }
     })
+    updateBtn()
 }
 
 function updateBtn() {
@@ -74,7 +78,7 @@ function updateBtn() {
         rightBtn.disabled = true;
     }
 
-    
+
     let rightCheckboxes = rightContainer.querySelectorAll("input");
     let rightChecked = false;
 
@@ -95,6 +99,5 @@ function updateBtn() {
 document.addEventListener("change", function (event) {
     if (event.target.type === "checkbox") {
         updateBtn();
-        console.log('hi')
     }
 })
