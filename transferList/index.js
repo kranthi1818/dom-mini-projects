@@ -25,20 +25,21 @@ buttonsContainer.addEventListener('click',function(event){
     }else if(event.target.classList.contains('right')){
         right()
     }
+    updateBtn()
 })
 
 function allLeft(){
      singleElement.forEach((ele)=>{
         leftContainer.append(ele)
      })
-     updateBtn()
+     
 }
 
 function allRight(){
     singleElement.forEach((ele)=>{
         rightContainer.append(ele)
      })
-     updateBtn()
+    
 }
 
 function left(){
@@ -48,7 +49,7 @@ function left(){
              inp.checked = false
         }
     })
-    updateBtn()
+    
 }
 
 function right(){
@@ -58,7 +59,6 @@ function right(){
              inp.checked = false
         }
     })
-    updateBtn()
 }
 
 function updateBtn() {
