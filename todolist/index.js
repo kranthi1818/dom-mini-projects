@@ -6,8 +6,8 @@ let allToDo = []
 input.addEventListener("keyup", handleInput)
 
 function createUI() {
-//   ul.innerHTML = ""
-ul.innerHTML = ''
+  ul.innerHTML = ""
+
   allToDo.forEach((todo) => {
     let li = document.createElement("li")
     let checkbox = document.createElement("input")
@@ -16,6 +16,10 @@ ul.innerHTML = ''
 
     let content = document.createElement("p")
     content.innerText = todo.name
+
+    if (todo.isDone) {
+      content.classList.add("lineThrough")
+    }
 
     let cross = document.createElement("span")
     cross.innerText = "X"
@@ -42,37 +46,27 @@ function handleInput(event) {
 ul.addEventListener("click", checkBoxClicked)
 
 function checkBoxClicked(event) {
-  if (event.target.tagName == "INPUT") {
-    let Allchildren = Array.from(
-      event.target.parentElement.parentElement.children
-    )
-    let index = Allchildren.indexOf(event.target.parentElement)
+  let parentLi = event.target.parentElement
 
+  if (event.target.tagName == "INPUT") {
+    let Allchildren = Array.from(parentLi.parentElement.children)
+    let index = Allchildren.indexOf(parentLi)
     allToDo[index].isDone = event.target.checked
 
-  }else if(event.target.tagName == "SPAN"){
-    deleteTask(event)
+    let textElement = parentLi.querySelector("p")
+    if (event.target.checked) {
+      textElement.classList.add("lineThrough")
+    } else {
+      textElement.classList.remove("lineThrough")
+    }
+  } else if (event.target.tagName == "SPAN") {
+    deleteTask(parentLi)
   }
-  lineThrough(event)
 }
 
-function lineThrough(event) {
-  let textElement = event.target.nextSibling
+function deleteTask(parentLi) {
+  let index = Array.from(ul.children).indexOf(parentLi)
+  allToDo.splice(index, 1)
 
-  if (textElement && textElement.tagName === "P" && event.target.checked) {
-    textElement.classList.add("lineThrough")
-  } else {
-    textElement.classList.remove("lineThrough")
-  }
-     
+  parentLi.remove()
 }
-
-function deleteTask(event) {
-
-    let li = event.target.parentElement;
-    let index = Array.from(ul.children).indexOf(li); 
-    
-    allToDo.splice(index, 1); 
-  
-    createUI(); 
-  }
