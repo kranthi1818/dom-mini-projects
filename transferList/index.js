@@ -28,7 +28,7 @@ buttonsContainer.addEventListener('click',function(event){
     }else if(event.target.classList.contains('right')){
         right()
     }
-    updateBtn()
+    // updateBtn()
 })
 
 function allLeft(){
