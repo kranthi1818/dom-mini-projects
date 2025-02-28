@@ -9,6 +9,9 @@ let input = document.querySelectorAll('input')
 let leftBtn = document.querySelector('.left')
 let rightBtn = document.querySelector('.right')
 
+let allLeftBtn = document.querySelector('.all-left')
+let allRightBtn = document.querySelector('.all-right')
+
 leftBtn.disabled = true;
 rightBtn.disabled = true;
 
@@ -94,6 +97,11 @@ function updateBtn() {
     } else {
         leftBtn.disabled = true;
     }
+
+    allLeftBtn.disabled  =   rightContainer.children.length == 0
+    allRightBtn.disabled =  leftContainer.children.length == 0
+
+    
 }
 
 document.addEventListener("change", function (event) {
